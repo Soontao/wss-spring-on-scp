@@ -17,16 +17,6 @@ public class MainServiceImpl implements MainService {
 	
 	@Autowired
 	private TeacherRepository teacherRepository;
-
-	public String sayHello(String myname) {
-		try {
-			return "Hello, Welcome to CXF Spring boot " + myname + "!!!";
-
-		} catch (java.lang.Exception ex) {
-			ex.printStackTrace();
-			throw new RuntimeException(ex);
-		}
-	}
 	
 	public List<Teacher> getAllTeachers() {
 		return this.teacherRepository.findAll();
