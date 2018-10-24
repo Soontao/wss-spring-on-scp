@@ -1,0 +1,25 @@
+---
+applications:
+-   # app的名字，使用cf apps时会显示出来
+    name: spring-boot-demo
+
+    # 使用随机的路由(URL)。
+    # 默认情况cf会申请以name为开头的url
+    # 使用随机的后缀以避免url冲突
+    random-route: true
+
+    # 内存限制，简单的Spring Boot内存占用在300M左右
+    memory: 500M
+
+    # maven构建的jar包路径，如果版本和名字不一样，需要修改
+    path: target/demo-1.0.0.war
+
+    # 使用java构建包，主要是包含一个java环境
+    buildpack: java_buildpack
+
+    # run "cf create-service postgresql v9.4-dev psql" to create service instance before first push
+    services:
+    - psql
+    
+    env:
+      spring.profiles.active: cloud,cf-production
